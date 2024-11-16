@@ -2,7 +2,6 @@ import Product from '../models/product.js'
 
 const addProduct = async (req,res,next)=>{
     try {
-        console.log('Authorization Header:', req.headers.authorization);
         const {productName,expiryDate,quantity,price,category,isExpired,isAvailable,location} = req.body
 
 

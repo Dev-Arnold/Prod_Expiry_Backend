@@ -5,19 +5,19 @@ import authorize from '../middlewares/aurhorize.js'
 const router = express.Router()
 
 
-router.post('/',addProduct) // add new product
+router.post('/',authorize(['Admin','Staff']),addProduct) // add new product
 
-router.get('/',authorize(['Admin']),allProducts) // get list of all products
+router.get('/',authorize(['Admin','Staff']),allProducts) // get list of all products
 
 router.put('/:id',authorize(['Admin','Staff']),updateProduct)
 
-router.delete('/:id',deleteProduct)
+router.delete('/:id',authorize(['Admin']),deleteProduct)
 
-router.get('/non-expired', non_expired);
+router.get('/non-expired',authorize(['Admin','Staff']), non_expired);
 
-router.get('/expired', expiredProducts);
+router.get('/expired',authorize(['Admin','Staff']) , expiredProducts);
 
-router.get('/expiresoon', getProductsWithExpiry);
+router.get('/expiresoon',authorize(['Admin','Staff']) ,getProductsWithExpiry);
 
 
 export default router
@@ -29,4 +29,5 @@ export default router
 //     "category":"Pharmacy",
 //     "isExpired":false,
 //     "isAvailable":true,
-//    
+//     "location":"Top shelf"
+// }
