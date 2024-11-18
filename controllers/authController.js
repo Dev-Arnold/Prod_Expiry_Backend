@@ -39,11 +39,11 @@ const Login = async(req,res,next)=>{
         let {email,password} = req.body;
         const user = await User.findOne({email});
         if (!user) {
-            return res.status(404).json({message:"User not found"})
+            return res.status(404).json({emailMessage:"User not found"})
         }
         
         const checkpassword = await bcrypt.compare(password, user.password);
-        if(!checkpassword) return res.status(400).json({message:"Incorrect Password"})
+        if(!checkpassword) return res.status(400).json({passwordMessage:"Incorrect Password"})
 
         const token = jwt.sign(
             { id: user._id, role: user.role },

@@ -1,6 +1,7 @@
 import express from 'express'
 const app = express()
 import connect from './dbConfig/dbconfig.js'
+import cors from 'cors'
 import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import errorHandler from './middlewares/errorHandler.js'
@@ -12,6 +13,11 @@ dotenv.config();
 app.use(express.json());  
 
 connect()
+
+app.use(cors({
+    // origin: '*',
+    origin: 'http://localhost:5173' // Allow only this origin
+}));
 
 app.use('/api/product', productRoutes);
 

@@ -45,7 +45,7 @@ cron.schedule('0 0 * * *', async () => {
                     subject: `Product Expiry Alert: ${product.productName}`,
                     text: `Alert! The product "${product.productName}" is expiring on ${expiryDate}. Please take necessary actions.`
                 };
-
+                
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
                         console.log(`Error sending email for product ${product.productName}:`, error);
