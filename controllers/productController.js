@@ -37,11 +37,11 @@ const addProduct = async (req,res,next)=>{
 
 const allProducts = async (req,res,next)=>{
     try {
-        console.log('Authorization Header:', req.headers.authorization);
+        // console.log('Authorization Header:', req.headers.authorization);
         const allProd = await Product.find()
 
         if(!allProd) return res.status(404).json({message:"No product found"})
-
+            
         res.status(201).json(allProd)
 
     } catch (error) {
