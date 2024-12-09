@@ -7,7 +7,7 @@ const errorHandler = (err, req, res, next) => {
     // Send a consistent JSON response for errors
     res.status(statusCode).json({
         message: err.message || 'Something went wrong! Please try again.',
-        error: process.env.NODE_ENV === 'production' ? null : err.stack, // Hide stack trace in production
+        error: process.env.NODE_ENV === 'PRODUCTION' ? null : err.stack, // Hide stack trace in production
     });
 };
 
