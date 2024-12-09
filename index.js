@@ -16,7 +16,8 @@ connect()
 
 app.use(cors({
     // origin: '*',
-    origin: 'http://localhost:5173' // Allow only this origin
+    origin:'http://product-expiry.vercel.app' 
+    // origin: 'http://localhost:5173' // Allow only this origin
 }));
 
 app.use('/api/product', productRoutes);
