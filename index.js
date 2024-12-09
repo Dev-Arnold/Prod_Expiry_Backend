@@ -16,7 +16,7 @@ connect()
 
 app.use(cors({
     // origin: '*',
-    origin:'http://product-expiry.vercel.app' 
+    origin:'https://product-expiry.vercel.app' 
     // origin: 'http://localhost:5173' // Allow only this origin
 }));
 
